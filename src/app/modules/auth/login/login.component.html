@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div fxLayout="column" fxLayoutAlign="center center">
+    <h2>Sign in</h2>
+</div>
+<div class="login-form-container">
+    <div fxLayout="column" fxLayoutAlign="center">
+        <mat-form-field class="login-field-container">
+            <input matInput class="login-field" fxLayout="column" placeholder="Enter your email" [formControl]="email"
+                required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center">
+
+        <mat-form-field class="login-field-container">
+            <input matInput class="login-field" fxLayout="column" placeholder="Enter your password"
+                [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="row" class="login-field-container" fxLayoutAlign="space-evenly center">
+        <!-- <div >
+            <button mat-button fxLayout="column" color="primary">Create account</button>
+        </div> -->
+        <div >
+            <button mat-raised-button class="login-button" fxLayout="column" color="primary">Login</button>
+        </div>
+    </div>
+
+</div>

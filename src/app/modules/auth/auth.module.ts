@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { SignupComponent } from './signup/signup.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { AuthComponent } from './auth.component';
 
 
 
@@ -11,6 +12,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   declarations: [
     LoginComponent,
     SignupComponent,
+    AuthComponent,
   ],
   imports: [
     CommonModule,
