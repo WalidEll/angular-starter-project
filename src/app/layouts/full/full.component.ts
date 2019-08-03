@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { SideMenuModel } from '../../core/models/side-menu-route';
 @Component({
   selector: 'app-full',
   templateUrl: './full.component.html',
@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FullComponent implements OnInit {
 
+  adminMenu: SideMenuModel[] = [
+    {
+      icon: 'dashboard',
+      route: '/admin/dashboard',
+      title: 'Dashboards',
+    }
+  ];
   constructor() { }
 
   ngOnInit() {

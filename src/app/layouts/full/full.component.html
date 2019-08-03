@@ -1,2 +1,38 @@
-<p>full works!</p>
-<router-outlet></router-outlet>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-icon-button (click)="snav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>AppName</span>
+        <span class="toolbar-spacer"></span>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <mat-icon>exit_to_app</mat-icon>
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+    </mat-toolbar-row>
+
+</mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #snav>
+        <mat-nav-list>
+
+            <h2 matSubheader> Admin </h2>
+
+            <a *ngFor="let item of adminMenu" mat-list-item (click)="navigationSidenav.close()"
+                [routerLink]="[item.route]" routerLinkActive="list-item-active">
+                <mat-icon matListIcon class="app-nav-list-icon"> {{ item.icon }} </mat-icon>
+                {{item.title}}
+            </a>
+
+            <mat-divider></mat-divider>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
